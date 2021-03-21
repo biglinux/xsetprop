@@ -57,24 +57,30 @@ Or you can use xprop.patch to make xprop work as you want. :)
 In line 306 change CARDINAL to WINDOW, that turn possible change parameters of WM_TRANSIENT_FOR and attach one window in another window
 
 Example:
-xsetprop -id=0x00400006 --atom WM_TRANSIENT_FOR --value 0x05600011 -f 32x
-To attach 0x00400006 in 0x05600011
 
+To attach 0x00400006 in 0x05600011:
+
+    xsetprop -id=0x00400006 --atom WM_TRANSIENT_FOR --value 0x05600011 -f 32x
+    
 To see all windows with id use:
-wmctrl -p -l
+
+    wmctrl -p -l
 
 To remove icon of one window in taskbar use:
-wmctrl -i -r 0x00400006 -b add,skip_pager,skip_taskbar
+
+    wmctrl -i -r 0x00400006 -b add,skip_pager,skip_taskbar
 
 And to turn little more cool, change to modal:
-wmctrl -i -r 0x00400006 -b toggle,modal
+
+    wmctrl -i -r 0x00400006 -b toggle,modal
 
 Or using shell in easy way, just need change W1 and W2 value:
 
-#!/bin/bash
-W1="0x00400006"
-W2="0x05600011"
+    #!/bin/bash
+    W1="0x00400006"
+    W2="0x05600011"
 
 xsetprop -id=$W1 --atom WM_TRANSIENT_FOR --value $W2 -f 32x
-wmctrl -i -r $W1 -b add,skip_pager,skip_taskbar
-wmctrl -i -r $W1 -b toggle,modal
+
+    wmctrl -i -r $W1 -b add,skip_pager,skip_taskbar
+    wmctrl -i -r $W1 -b toggle,modal
