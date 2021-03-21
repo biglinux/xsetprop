@@ -303,7 +303,7 @@ void set_property( Display * _dpy, Window _wid, const char * _format_str,
               tmp = strtok(NULL,",");
             }
 
-          type = XA_CARDINAL;
+          type = XA_WINDOW;
           free(value2);
           break;
         }
