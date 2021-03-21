@@ -79,8 +79,6 @@ Or using shell in easy way, just need change W1 and W2 value:
     #!/bin/bash
     W1="0x00400006"
     W2="0x05600011"
-
-xsetprop -id=$W1 --atom WM_TRANSIENT_FOR --value $W2 -f 32x
-
+    xsetprop -id=$W1 --atom WM_TRANSIENT_FOR --value $W2 -f 32x
     wmctrl -i -r $W1 -b add,skip_pager,skip_taskbar
     wmctrl -i -r $W1 -b toggle,modal
